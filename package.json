@@ -217,7 +217,6 @@
     "wrappy": "^1.0.2",
     "yocto-queue": "^0.1.0"
   },
-  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
