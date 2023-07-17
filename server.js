@@ -1,0 +1,50 @@
+// Import required modules
+const express = require('express');
+const bodyParser = require('body-parser');
+const Flutterwave = require('flutterwave-node-v3');
+const dotenv = require('dotenv');
+
+// Load environment variables from .env file
+dotenv.config();
+
+// Create an instance of the Flutterwave client
+const flw = new Flutterwave(process.env.FLW_PUBLIC_KEY, process.env.FLW_SECRET_KEY);
+
+// Initialize the Express app
+const app = express();
+app.use(bodyParser.json());
+
+// Route to handle transaction verification
+app.post('/verify-transaction', async (req, res) => {
+  const { transactionId, expectedAmount, expectedCurrency } = req.body;
+
+  try {
+    const response = await flw.Transaction.verify({ id: transactionId });
+
+    if (
+      response.data.status === "successful"
+      && response.data.amount === expectedAmount
+      && response.data.currency === expectedCurrency
+    ) {
+      // Success! Confirm the customer's payment
+      res.status(200).json({ success: true, message: 'Payment verified successfully' });
+    } else {
+      // Inform the customer their payment was unsuccessful
+      res.status(400).json({ success: false, message: 'Payment verification failed' });
+    }
+  } catch (error) {
+    res.status(500).json({ success: false, message: 'An error occurred during verification', error });
+  }
+});
+
+// Route to handle root requests (index page with the graphic)
+app.get('/', (req, res) => {
+  const serverStatusGraphic = '<img src="https://keepcalms.com/p/keep-calm-the-server-is-up/" alt="Server is up!" style="display:block; margin:auto;">';
+  res.send(`<html><body style="text-align:center;"><h1>Server is running!</h1>${serverStatusGraphic}</body></html>`);
+});
+
+// Start the server
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`Server listening on port ${PORT}`);
+});
