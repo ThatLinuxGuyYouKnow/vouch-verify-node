@@ -80,7 +80,7 @@ app.post('/fund-account-card', async (req, res) => {
 
 // Route to handle root requests (index page with the graphic)
 app.get('/', (req, res) => {
-  const serverStatusGraphic = '<img src="https://keepcalms.com/p/keep-calm-the-server-is-up/" alt="Server is up!" style="display:block; margin:auto;">';
+  const serverStatusGraphic = '<img src="https://sd.keepcalms.com/i-w600/keep-calm-the-server-is-up.jpg" alt="Server is up!" style="display:block; margin:auto;">';
   res.send(`<html><body style="text-align:center;"><h1>Server is running!</h1>${serverStatusGraphic}</body></html>`);
 });
 
