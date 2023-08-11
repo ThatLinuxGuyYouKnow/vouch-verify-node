@@ -1,4 +1,3 @@
 bruh
 up
 down
-left
