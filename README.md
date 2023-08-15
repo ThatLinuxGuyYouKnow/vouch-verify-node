@@ -6,4 +6,3 @@ day
 to
 make
 my
-green
