@@ -7,4 +7,3 @@ to
 make
 commit
 green
-preview 
