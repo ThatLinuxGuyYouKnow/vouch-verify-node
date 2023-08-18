@@ -6,4 +6,3 @@ day
 to
 make
 commit
-green
