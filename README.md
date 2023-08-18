@@ -8,4 +8,3 @@ make
 commit
 green
 preview 
-greener
