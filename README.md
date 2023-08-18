@@ -9,4 +9,3 @@ commit
 green
 preview 
 greener
-and 
