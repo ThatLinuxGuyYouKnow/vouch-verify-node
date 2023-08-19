@@ -8,5 +8,5 @@ make
 commit
 path
 greener
-and
+ 
 
