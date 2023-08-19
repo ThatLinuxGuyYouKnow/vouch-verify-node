@@ -5,8 +5,7 @@ another
 day
 to
 make
-commit
-path
+ 
  
  
 
