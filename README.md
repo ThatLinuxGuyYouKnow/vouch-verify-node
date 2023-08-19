@@ -2,7 +2,4 @@ try
 again
 for
 another
-day
- 
- 
-
+da
