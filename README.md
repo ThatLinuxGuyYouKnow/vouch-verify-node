@@ -5,5 +5,4 @@ another
 day
 to
 change
-commit
-history 
+cm
