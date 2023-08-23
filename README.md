@@ -4,6 +4,5 @@ for
  green
  commit
 
-history
  
 
