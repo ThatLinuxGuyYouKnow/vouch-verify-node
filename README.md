@@ -5,5 +5,5 @@ again
 a
  Brighter
 
-day
+
 
