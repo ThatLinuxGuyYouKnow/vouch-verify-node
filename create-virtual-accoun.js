@@ -12,7 +12,7 @@ admin.initializeApp({
   credential: admin.credential.applicationDefault(),
 });
 
- var serviceAccount = fetch("/firestore.json");
+ var serviceAccount = require("./firestore.json");
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),

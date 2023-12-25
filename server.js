@@ -11,8 +11,11 @@ dotenv.config();
 const flw = new Flutterwave(process.env.FLW_PUBLIC_KEY, process.env.FLW_SECRET_KEY);
 
 // Initialize the Express app
-const app = express();
-app.use(bodyParser.json());
+// ... other imports
+const flutterwaveRoutes = require('./create-virtual-accoun.js');
+app.use('/flutterwave', flutterwaveRoutes);
+// ... rest of your code
+
 
 // Route to handle transaction verification
 app.post('/verify-transaction', async (req, res) => {
