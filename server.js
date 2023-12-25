@@ -36,7 +36,7 @@ app.post('/verify-transaction', async (req, res) => {
     res.status(500).json({ success: false, message: 'An error occurred during verification', error });
   }
 });
-<<<<<<< HEAD
+ 
 // Route to handle account funding from bank
 app.post('/fund-account-bank', async (req, res) => {
   const { account_bank, account_number, amount, narration, currency, debit_currency } = req.body;
@@ -80,23 +80,20 @@ app.post('/fund-account-card', async (req, res) => {
 });
 
 // Route to handle root requests (index page with the graphic)
-app.get('/', (req, res) => {
-  const serverStatusGraphic = '<img src="https://sd.keepcalms.com/i-w600/keep-calm-the-server-is-up.jpg" alt="Server is up!" style="display:block; margin:auto;">';
-=======
+ 
 
 // Route to handle root requests (index page with the graphic)
 app.get('/', (req, res) => {
   const serverStatusGraphic = '<img src="https://keepcalms.com/p/keep-calm-the-server-is-up/" target="_blank" alt="Server is up!" style="display:block; margin:auto;">';
->>>>>>> dbc7969 (Seccond Commit)
+ 
   res.send(`<html><body style="text-align:center;"><h1>Server is running!</h1>${serverStatusGraphic}</body></html>`);
 });
 
 // Start the server
-<<<<<<< HEAD
-const PORT = process.env.PORT || 3100;
-=======
+ 
+ 
 const PORT = process.env.PORT || 3000;
->>>>>>> dbc7969 (Seccond Commit)
+ 
 app.listen(PORT, () => {
   console.log(`Server listening on port ${PORT}`);
 });
