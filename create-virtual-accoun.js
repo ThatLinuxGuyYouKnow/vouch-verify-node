@@ -12,7 +12,7 @@ admin.initializeApp({
   credential: admin.credential.applicationDefault(),
 });
 
- var serviceAccount = fetch("/create-virtual-accoun.js");
+ var serviceAccount = fetch("/firestore.json");
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
