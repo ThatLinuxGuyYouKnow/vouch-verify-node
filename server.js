@@ -11,8 +11,11 @@ dotenv.config();
 const flw = new Flutterwave(process.env.FLW_PUBLIC_KEY, process.env.FLW_SECRET_KEY);
 
 // Initialize the Express app
-const app = express();
-app.use(bodyParser.json());
+// ... other imports
+const createVirtualAccount = require('./create-virtual-accoun.js');
+app.use('/flutterwave', createVirtualAccount);
+// ... rest of your code
+
 
 // Route to handle transaction verification
 app.post('/verify-transaction', async (req, res) => {
@@ -36,6 +39,7 @@ app.post('/verify-transaction', async (req, res) => {
     res.status(500).json({ success: false, message: 'An error occurred during verification', error });
   }
 });
+ 
 // Route to handle account funding from bank
 app.post('/fund-account-bank', async (req, res) => {
   const { account_bank, account_number, amount, narration, currency, debit_currency } = req.body;
@@ -79,13 +83,20 @@ app.post('/fund-account-card', async (req, res) => {
 });
 
 // Route to handle root requests (index page with the graphic)
+ 
+
+// Route to handle root requests (index page with the graphic)
 app.get('/', (req, res) => {
-  const serverStatusGraphic = '<img src="https://sd.keepcalms.com/i-w600/keep-calm-the-server-is-up.jpg" alt="Server is up!" style="display:block; margin:auto;">';
+  const serverStatusGraphic = '<img src="https://keepcalms.com/p/keep-calm-the-server-is-up/" target="_blank" alt="Server is up!" style="display:block; margin:auto;">';
+ 
   res.send(`<html><body style="text-align:center;"><h1>Server is running!</h1>${serverStatusGraphic}</body></html>`);
 });
 
 // Start the server
-const PORT = process.env.PORT || 3100;
+ 
+ 
+ 
+ const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-  console.log(`Server listening on port ${PORT}`);
-});
+ console.log(`Server listening on port ${PORT}`)});
+// server.js file ends here
