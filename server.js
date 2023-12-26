@@ -12,8 +12,8 @@ const flw = new Flutterwave(process.env.FLW_PUBLIC_KEY, process.env.FLW_SECRET_K
 
 // Initialize the Express app
 // ... other imports
-const flutterwaveRoutes = require('./create-virtual-accoun.js');
-app.use('/flutterwave', flutterwaveRoutes);
+const createVirtualAccount = require('./create-virtual-accoun.js');
+app.use('/flutterwave', createVirtualAccount);
 // ... rest of your code
 
 
@@ -95,8 +95,8 @@ app.get('/', (req, res) => {
 // Start the server
  
  
-const PORT = process.env.PORT || 3000;
  
+ const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-  console.log(`Server listening on port ${PORT}`);
-});
+ console.log(`Server listening on port ${PORT}`)});
+// server.js file ends here
