@@ -3,18 +3,17 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const Flutterwave = require('flutterwave-node-v3');
 const dotenv = require('dotenv');
-
+ 
+const app = express();
 // Load environment variables from .env file
 dotenv.config();
 
 // Create an instance of the Flutterwave client
 const flw = new Flutterwave(process.env.FLW_PUBLIC_KEY, process.env.FLW_SECRET_KEY);
-
-// Initialize the Express app
-// ... other imports
+ 
 const createVirtualAccount = require('./create-virtual-accoun.js');
 app.use('/flutterwave', createVirtualAccount);
-// ... rest of your code
+ 
 
 
 // Route to handle transaction verification
@@ -81,8 +80,6 @@ app.post('/fund-account-card', async (req, res) => {
     res.status(500).json({ success: false, message: 'An error occurred during funding', error });
   }
 });
-
-// Route to handle root requests (index page with the graphic)
  
 
 // Route to handle root requests (index page with the graphic)
