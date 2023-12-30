@@ -41,16 +41,16 @@ app.post('/verify-transaction', async (req, res) => {
  
 // Route to handle account funding from bank
 app.post('/fund-account-bank', async (req, res) => {
-  const { account_bank, account_number, amount, narration, currency, debit_currency } = req.body;
+ 
 
   try {
     const payload = {
-      "account_bank": account_bank,
-      "account_number": account_number,
-      "amount": amount,
-      "narration": narration,
-      "currency": currency,
-      "debit_currency": debit_currency
+      "account_bank": req.body.account_bank,
+      "account_number": req.body.account_number,
+      "amount": req.body.amount,
+      "narration": req.body.narration,
+      "currency": req.body.currency,
+      "debit_currency": req.body.debit_currency
     }
     const response = await flw.Transfer.initiate(payload)
     res.status(200).json(response);
@@ -96,4 +96,4 @@ app.get('/', (req, res) => {
  const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
  console.log(`Server listening on port ${PORT}`)});
-// server.js file ends here
+// server.js file ends here 
