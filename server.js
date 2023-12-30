@@ -33,9 +33,10 @@ app.post('/verify-transaction', async (req, res) => {
       // Inform the customer their payment was unsuccessful
       res.status(400).json({ success: false, message: 'Payment verification failed' });
     }
-  } catch (error) {errorInJson = JSON.stringify(error)
+  } catch (error) {
+    errorInJson = JSON.stringify(error)
  
- res.statusMessage = errorInJson;
+ res.statusMessage = 'error' + errorInJson;
  
     res.status(500).json({ success: false, message: 'An error occurred during verification', error });
   }
