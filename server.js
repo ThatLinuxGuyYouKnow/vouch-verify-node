@@ -19,6 +19,7 @@ app.use('/flutterwave', createVirtualAccount);
 // Route to handle transaction verification
 app.post('/verify-transaction', async (req, res) => {
   try {
+    transactionID=req.body.transactionId;
     const response = await flw.Transaction.verify({ id: transactionId });
 
     if (
