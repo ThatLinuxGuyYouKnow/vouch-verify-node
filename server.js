@@ -18,8 +18,6 @@ app.use('/flutterwave', createVirtualAccount);
 
 // Route to handle transaction verification
 app.post('/verify-transaction', async (req, res) => {
-  
-
   try {
     const response = await flw.Transaction.verify({ id: transactionId });
 
@@ -35,6 +33,8 @@ app.post('/verify-transaction', async (req, res) => {
       res.status(400).json({ success: false, message: 'Payment verification failed' });
     }
   } catch (error) {
+    console.log(JSON.stringify(error));
+    console.log(error);
     res.status(500).json({ success: false, message: 'An error occurred during verification', error });
   }
 });
