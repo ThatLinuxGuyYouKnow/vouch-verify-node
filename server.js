@@ -30,10 +30,12 @@ app.post('/verify-transaction', async (req, res) => {
       // Success! Confirm the customer's payment
       res.status(200).json({ success: true, message: 'Payment verified successfully' });
     } else {
+      console.log(error);
       // Inform the customer their payment was unsuccessful
       res.status(400).json({ success: false, message: 'Payment verification failed' });
     }
   } catch (error) {
+    console.log(error);
     errorInJson = JSON.stringify(error)
  
  res.statusMessage = 'error' + errorInJson;
@@ -58,6 +60,7 @@ app.post('/fund-account-bank', async (req, res) => {
     const response = await flw.Transfer.initiate(payload)
     res.status(200).json(response);
   } catch (error) {
+    console.log(error);
     res.status(500).json({ success: false, message: 'An error occurred during funding', error });
   }
 });
@@ -80,6 +83,7 @@ app.post('/fund-account-card', async (req, res) => {
     const response = await flw.Charge.card(payload)
     res.status(200).json(response);
   } catch (error) {
+    console.log(error);
     res.status(500).json({ success: false, message: 'An error occurred during funding', error });
   }
 });
