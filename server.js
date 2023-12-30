@@ -18,15 +18,15 @@ app.use('/flutterwave', createVirtualAccount);
 
 // Route to handle transaction verification
 app.post('/verify-transaction', async (req, res) => {
-  const { transactionId, expectedAmount, expectedCurrency } = req.body;
+  
 
   try {
     const response = await flw.Transaction.verify({ id: transactionId });
 
     if (
       response.data.status === "successful"
-      && response.data.amount === expectedAmount
-      && response.data.currency === expectedCurrency
+      && response.data.amount === req.body.expectedAmount
+      && response.data.currency === req.body.expectedCurrency
     ) {
       // Success! Confirm the customer's payment
       res.status(200).json({ success: true, message: 'Payment verified successfully' });
