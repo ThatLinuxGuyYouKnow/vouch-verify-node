@@ -37,7 +37,7 @@ app.post('/verify-transaction', async (req, res) => {
     errorInJson = JSON.stringify(error)
  
  res.statusMessage = 'error' + errorInJson;
- 
+ console.log(error);
     res.status(500).json({ success: false, message: 'An error occurred during verification', errorInJson });
   }
 });
