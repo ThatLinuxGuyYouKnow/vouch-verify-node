@@ -1,5 +1,5 @@
 // In-memory store of payments we have initiated.
-// For a proof of concept this lives in memory — swap for ***REMOVED***/Postgres later.
+// For a proof of concept this lives in memory — swap for a real database later.
 const store = new Map();
 
 function create(record) {
