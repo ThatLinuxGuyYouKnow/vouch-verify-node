@@ -2,8 +2,6 @@
 
 Take payments and verify them server-side with the **Interswitch** developer API (Node.js + Express).
 
-Replaces the previous Flutterwave integration.
-
 ## Endpoints
 
 | Method | Path                        | Purpose                                                        |
@@ -115,12 +113,6 @@ More cards (success/failure scenarios): https://docs.interswitchgroup.com/docs/t
 2. Set `INTERSWITCH_MODE=LIVE` (base URLs switch to `webpay.interswitchng.com` / `passport.interswitchng.com`).
 3. Set your real `INTERSWITCH_MERCHANT_CODE`, `INTERSWITCH_PAYABLE_CODE`, client id/secret, and webhook secret.
 4. Set `APP_BASE_URL` to your public HTTPS domain.
-
-## Notes on the pivot
-
-- `flutterwave-node-v3` and `***REMOVED***-admin` were removed from `package.json`; `create-virtual-accoun.js` (Flutterwave/***REMOVED***) was deleted.
-- Payment records are held in an in-memory store (`src/payments.js`) — enough for a proof of concept; swap it for ***REMOVED***/Postgres for production.
-- The old Flutterwave-only routes (`/fund-account-bank`, `/fund-account-card`) are gone; equivalent Interswitch transfer APIs live under a different product (Send Money) if you need them.
 
 ## Layout
 
